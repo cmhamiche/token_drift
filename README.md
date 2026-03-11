@@ -4,7 +4,7 @@
 
 → **[Live visualization]([https://huggingface.co/spaces/TODO/qwen-quant-drift](https://huggingface.co/spaces/cmh/Qwen3.5-9B-GGUF-quant-drift))**
 
-[outputs/preview.png](https://github.com/cmhamiche/token_drift/blob/main/preview.png)
+![outputs/preview.png](https://github.com/cmhamiche/token_drift/blob/main/preview.png)
 
 ---
 
