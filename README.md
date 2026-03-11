@@ -1,12 +1,10 @@
 # Quantization Drift — Qwen3.5-9B
 
-**How much does each GGUF quantization level diverge from the BF16 baseline?**
-
-This repo measures token-level drift across 47 quants of Qwen3.5-9B — from `UD-Q8_K_XL` down to `UD-IQ2_XXS` — using two complementary methods: raw text completion divergence and per-token KL divergence.
+**Token-level drift across 47 quants of Qwen3.5-9B.**
 
 → **[Live visualization]([https://huggingface.co/spaces/TODO/qwen-quant-drift](https://huggingface.co/spaces/cmh/Qwen3.5-9B-GGUF-quant-drift))**
 
-![outputs/preview.png](https://github.com/cmhamiche/token_drift/blob/main/preview.png)
+[outputs/preview.png](https://github.com/cmhamiche/token_drift/blob/main/preview.png)
 
 ---
 
@@ -96,29 +94,15 @@ Results land in `results/text_gen.json`, `results/token_drift.json`, and `result
 
 ---
 
-## Key findings
-
-**High quants (Q6+):** Completions are stylistically identical or diverge only at late tokens (e.g. choice of variable names, comment style). KLD stays below 0.001 nats on average.
-
-**Q4 tier:** First meaningful structural divergence — some models add wrapper functions, extra examples, or shift narrative direction. KLD mean ~0.002–0.01 nats.
-
-**Q3 tier:** Content generally correct but noticeably different phrasing. Some models produce unusually long comment blocks. Occasional style/direction shift in open-ended domains.
-
-**Q2 / IQ2 tier:** Visible repetition loops begin here. `bart-Q2_K` repeats comment lines ~10×. `unsl-UD-IQ2_XXS` generates `de l'heure de l'heure` ~50× in French. Math stays mostly correct but structure collapses. KLD mean 0.04–0.18 nats.
-
-The French domain diverges earliest (typically within the first 4 characters) — open-ended continuation is more sensitive to quantization than constrained tasks like code completion.
-
----
-
 ## Hardware & software
 
 | | |
 |---|---|
 | GPU | NVIDIA RTX 3060 12 GB |
-| OS | Windows 11 |
-| llama.cpp | b8250 (0beb8db3a) |
+| OS | Windows 11 26100.7840 |
+| llama.cpp | 8250 (0beb8db3a) |
 | CUDA drivers | 591.85 |
-| Decode | greedy, temp=0, seed=42 |
+| Decode | temp=0, seed=42 |
 
 ---
 
