@@ -4,7 +4,7 @@
 
 This repo measures token-level drift across 47 quants of Qwen3.5-9B — from `UD-Q8_K_XL` down to `UD-IQ2_XXS` — using two complementary methods: raw text completion divergence and per-token KL divergence.
 
-→ **[Live visualization](https://huggingface.co/spaces/TODO/qwen-quant-drift)**
+→ **[Live visualization]([https://huggingface.co/spaces/TODO/qwen-quant-drift](https://huggingface.co/spaces/cmh/Qwen3.5-9B-GGUF-quant-drift))**
 
 ![preview](outputs/preview.png)
 
