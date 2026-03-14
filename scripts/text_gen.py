@@ -18,8 +18,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 # Edit these to match your setup
-LLAMA_SERVER = ROOT / "llama.cpp" / "llama-server.exe"   # Windows
-# LLAMA_SERVER = ROOT / "llama.cpp" / "llama-server"      # Linux / macOS
+import sys as _sys
+LLAMA_SERVER = ROOT / "llama.cpp" / ("llama-server.exe" if _sys.platform == "win32" else "llama-server")
 
 PRESET_FILE  = ROOT / "scripts" / "models-preset.ini"
 OUTPUT_DIR   = ROOT / "results"

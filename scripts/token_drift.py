@@ -24,8 +24,8 @@ import numpy as np
 ROOT = Path(__file__).resolve().parent.parent
 
 # Edit these to match your setup
-LLAMA_PERPLEXITY = ROOT / "llama.cpp" / "llama-perplexity.exe"   # Windows
-# LLAMA_PERPLEXITY = ROOT / "llama.cpp" / "llama-perplexity"      # Linux / macOS
+import sys as _sys
+LLAMA_PERPLEXITY = ROOT / "llama.cpp" / ("llama-perplexity.exe" if _sys.platform == "win32" else "llama-perplexity")
 
 OUTPUT_DIR       = ROOT / "results"
 LOGITS_DIR       = ROOT / "results" / "logits"
